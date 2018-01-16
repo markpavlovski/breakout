@@ -1,6 +1,7 @@
 import pygame, sys
 
 pygame.init()
+pygame.mixer.init()
 
 window_size = (800, 600)
 
@@ -9,6 +10,14 @@ screen = pygame.display.set_mode(window_size)
 
 hello_world = pygame.image.load("square_ball.png")
 hello_world_size = hello_world.get_size()
+
+sound = pygame.mixer.Sound("hit_noise.wav")
+
+
+pygame.mouse.set_visible(False)
+
+
+
 
 x,y = 0,0
 
@@ -19,7 +28,7 @@ clock = pygame.time.Clock()
 
 while True:
 
-    clock.tick(60)
+    clock.tick(90)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -41,12 +50,16 @@ while True:
 
     ## Bouncing Behaviour
 
-    x += 3 * direction_x
-    y += 3 * direction_y
+    x += 2 * direction_x
+    y += 2 * direction_y
 
     if x + hello_world_size[0] > window_size[0] or x <= 0:
+        sound.stop()
+        sound.play()
         direction_x *= -1
     if y + hello_world_size[1] > window_size[1] or y <= 0:
+        sound.stop()
+        sound.play()
         direction_y *= -1
 
 
