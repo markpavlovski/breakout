@@ -6,8 +6,8 @@ window_size = (800, 600)
 
 screen = pygame.display.set_mode(window_size)
 
-myriad_pro_font = pygame.font.SysFont("Myriad Pro", 30)
-hello_world = myriad_pro_font.render("Hello, World", 1, (80,80,255),(255,255,255))
+
+hello_world = pygame.image.load("square_ball.png")
 hello_world_size = hello_world.get_size()
 
 x,y = 0,0
@@ -29,23 +29,27 @@ while True:
 
     mouse_position = pygame.mouse.get_pos()
 
-    # Follow the Mouse behaviour
-    x, y = mouse_position
-    if x + hello_world_size[0] > window_size[0]:
-        x = window_size[0] - hello_world_size[0]
-    if y + hello_world_size[1] > window_size[1]:
-        y = window_size[1] - hello_world_size[1]
+
+    # # Follow the Mouse behaviour
+    # x, y = mouse_position
+    # if x + hello_world_size[0] > window_size[0]:
+    #     x = window_size[0] - hello_world_size[0]
+    # if y + hello_world_size[1] > window_size[1]:
+    #     y = window_size[1] - hello_world_size[1]
 
     screen.blit(hello_world,(x,y))
 
-    # Bouncing Behaviour
-    #
-    # if x + hello_world_size[0] > window_size[0] or x <= 0:
-    #     direction_x *= -1
-    # if y + hello_world_size[1] > window_size[1] or y <= 0:
-    #     direction_y *= -1
-    #
-    #
+    ## Bouncing Behaviour
+
+    x += 3 * direction_x
+    y += 3 * direction_y
+
+    if x + hello_world_size[0] > window_size[0] or x <= 0:
+        direction_x *= -1
+    if y + hello_world_size[1] > window_size[1] or y <= 0:
+        direction_y *= -1
+
+
 
 
 
