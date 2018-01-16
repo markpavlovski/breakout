@@ -9,8 +9,9 @@ screen = pygame.display.set_mode(window_size)
 
 
 hello_world = pygame.image.load("square_ball.png")
-hello_world_size = hello_world.get_size()
+bar = pygame.image.load("bar.png")
 
+hello_world_size = hello_world.get_size()
 sound = pygame.mixer.Sound("hit_noise.wav")
 
 
@@ -20,6 +21,7 @@ pygame.mouse.set_visible(False)
 
 
 x,y = 0,0
+bar_x,bar_y = window_size[0]/2,window_size[1]*2/3,
 
 direction_x = 1
 direction_y = 1
@@ -31,8 +33,20 @@ while True:
     clock.tick(90)
 
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            sys.exit()
+        if event.type == pygame.QUIT:sys.exit()
+        if event.type == pygame.KEYDOWN:
+            if event.key  == pygame.K_RIGHT:
+                print("To the right, to the right!")
+                bar_x += 2
+            if event.key  == pygame.K_LEFT:
+                print("To the left, to the left.")
+                bar_x -= 2
+            if event.key  == pygame.K_UP:
+                print("And up, and up!")
+                bar_y += 2
+            if event.key  == pygame.K_DOWN:
+                print("And down, and down.")
+                bar_y -= 2
 
     screen.fill((0,0,0))
 
@@ -47,6 +61,7 @@ while True:
     #     y = window_size[1] - hello_world_size[1]
 
     screen.blit(hello_world,(x,y))
+    screen.blit(bar,(bar_x,bar_y))
 
     ## Bouncing Behaviour
 
