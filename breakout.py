@@ -1,80 +1,43 @@
-import pygame, sys
-from GameObject import GameObject
+from shared import *
+class Breakout:
+    def __init__(self):
+        print(GameConstants.SCREEN_SIZE)
+        pass
 
-# Initialize PyGame
-pygame.init()
-pygame.mixer.init()
-window_size = (800, 600)
-screen = pygame.display.set_mode(window_size)
-pygame.mouse.set_visible(False)
-clock = pygame.time.Clock()
+    def start(self):
+        pass
 
+    def change_scene(self, scene):
+        pass
 
-# Load Resources
-ball_image = pygame.image.load("square_ball.png")
-pad_image = pygame.image.load("bar.png")
-sound = pygame.mixer.Sound("hit_noise.wav")
+    def get_level(self):
+        pass
 
-ball_size = ball_image.get_size()
-pad_size = pad_image.get_size()
+    def get_score(self):
+        pass
 
-x,y = 0,0
-direction_x, direction_y = 1, 1
+    def increase_score(self,score):
+        pass
 
-def play_sound():
-    sound.stop()
-    sound.play()
+    def get_lives(self):
+        pass
 
-pad = GameObject(window_size[0]/2,window_size[1]*2/3,pad_size[0],pad_size[1])
-ball = GameObject(0,0,ball_size[0],ball_size[1])
+    def get_balls(self):
+        pass
 
+    def get_pad(self):
+        pass
 
+    def play_sound(self, sound_clip):
+        pass
 
-while True:
+    def reduce_lives(self):
+        pass
 
-    clock.tick(90)
+    def increase_lives(self):
+        pass
 
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:sys.exit()
-        if event.type == pygame.KEYDOWN:
-            if event.key  == pygame.K_RIGHT:
-                print("To the right, to the right!")
-                pad.x += 2
-            if event.key  == pygame.K_LEFT:
-                print("To the left, to the left.")
-                pad.x -= 2
-            if event.key  == pygame.K_UP:
-                print("And up, and up!")
-                pad.y += 2
-            if event.key  == pygame.K_DOWN:
-                print("And down, and down.")
-                pad.y -= 2
+    def reset(self):
+        pass
 
-    screen.fill((0,0,0))
-
-    screen.blit(ball_image,(ball.x,ball.y))
-    screen.blit(pad_image,(pad.x,pad.y))
-
-
-
-    ## Bouncing Behaviour
-
-    ball.x += 2 * direction_x
-    ball.y += 2 * direction_y
-
-    if ball.x + ball_size[0] > window_size[0] or ball.x <= 0:
-        play_sound()
-        direction_x *= -1
-    if ball.y + ball_size[1] > window_size[1] or ball.y <= 0:
-        play_sound()
-        direction_y *= -1
-    if ball.intersects(pad):
-        print("yes!")
-        play_sound()
-        direction_y *= -1
-
-
-
-
-
-    pygame.display.update()
+Breakout().start()
