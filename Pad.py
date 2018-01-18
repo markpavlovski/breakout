@@ -1,4 +1,4 @@
-from shared import *
+import GameConstants GameObject
 
 class Pad(GameObject):
     def __init__(self,position,sprite):

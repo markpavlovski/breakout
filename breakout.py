@@ -1,4 +1,4 @@
-from shared import *
+import GameConstants GameObject
 class Breakout:
     def __init__(self):
         print(GameConstants.SCREEN_SIZE)
