@@ -9,7 +9,7 @@ class Ball(GameObject):
         self.__direction = (1,1)
         self.__in_motion = False
 
-        super(Ball,self).__init__(position, GameConstants.BALL_SIZE, sprite, game)
+        super(Ball,self).__init__(position, GameConstants.BALL_SIZE, sprite)
 
     def set_speed(self,new_speed):
         self.__speed = new_speed
