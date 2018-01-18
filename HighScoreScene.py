@@ -1,4 +1,4 @@
-import Scene
+from Scene import *
 
 class HighScoreScene(Scene):
 

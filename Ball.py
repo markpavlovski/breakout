@@ -1,4 +1,5 @@
-import GameConstants GameObject
+from GameConstants import *
+from GameObject import *
 
 class Ball(GameObject):
     def __init__(self, position, sprite, game):

@@ -1,4 +1,4 @@
-import Brick
+from Brick import *
 def LifeBrick(Brick):
     def __init__(self, position, sprite, game):
         super(LifeBrick, self).__init__(position, sprite, game)

@@ -1,3 +1,5 @@
+from GameObject import *
+
 class Brick(GameObject):
 
     def __init__(self, position, sprite, game):
