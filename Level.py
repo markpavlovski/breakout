@@ -30,7 +30,7 @@ class Level:
         self.__bricks = []
         x,y = 0,0
 
-        for line in fileinput.input(os.path.join("Assets","Levels","level{}.dat".format(level))):
+        for line in fileinput.input(os.path.join("assets","levels","level{}.dat".format(level))):
             for item in line:
                 if item == "1":
                     brick = Brick([x,y], pygame.image.load(GameConstants.SPRITE_BRICK_PINK), self.__game)
