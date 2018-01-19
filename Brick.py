@@ -1,4 +1,5 @@
 from GameObject import *
+from GameConstants import *
 
 class Brick(GameObject):
 
@@ -7,7 +8,6 @@ class Brick(GameObject):
         self.__hit_points = 100
         self.__lives = 1
         super(Brick, self).__init__(position, GameConstants.BRICK_SIZE, sprite)
-        print(self.size)
 
     def get_game(self):
         return self.__game
