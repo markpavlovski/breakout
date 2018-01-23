@@ -26,7 +26,7 @@ class Breakout:
         self.__level.load(0)
 
         self.__pad = Pad((0,0),0)
-        self.__balls = [Ball((0,0),pygame.image.load(GameConstants.SPRITE_BALL),self)]
+        self.__balls = [Ball((GameConstants.SCREEN_SIZE[0]/2,GameConstants.SCREEN_SIZE[1]*2/3),pygame.image.load(GameConstants.SPRITE_BALL),self)]
 
         pygame.init()
         pygame.mixer.init()
