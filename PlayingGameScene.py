@@ -10,10 +10,18 @@ class PlayingGameScene(Scene):
         super(PlayingGameScene,self).render()
         game = self.get_game()
         for ball in game.get_balls():
+            for brick in game.get_level().get_bricks():
+                if ball.intersects(brick):
+                    brick.hit()
+                    ball.change_direction(brick)
+                    print("intersected")
+                    break
+
             ball.update_position()
             game.screen.blit(ball.get_sprite(),ball.get_position())
         for brick in game.get_level().get_bricks():
-            game.screen.blit(brick.get_sprite(),brick.get_position())
+            if not brick.is_destroyed():
+                game.screen.blit(brick.get_sprite(),brick.get_position())
 
     def handle_events(self, events):
         super(PlayingGameScene,self).handle_events(events)

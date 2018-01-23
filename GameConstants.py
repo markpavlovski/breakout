@@ -1,19 +1,21 @@
 import os
 
 class GameConstants:
-    SCREEN_SIZE = (472,600)
-    BRICK_SIZE = (30,8)
-    BRICK_GAP = (4,4)
-    BALL_SIZE = (10,10)
+    SCREEN_SIZE = (1080,800)
+    BRICK_SIZE = (60,25)
+    BRICK_GAP = (0,0)
+    BALL_SIZE = (16,16)
     PAD_SIZE = (30,8)
     FPS = 60
+    ROW_LENGTH = 18
     SPRITE_BALL = os.path.join("assets", "ball.png")
-    SPRITE_BRICK = os.path.join("assets", "brick.png")
-    SPRITE_BRICK_GREEN = os.path.join("assets", "brick_green.png")
-    SPRITE_BRICK_PINK = os.path.join("assets", "brick_pink.png")
-    SPRITE_BRICK_PURPLE = os.path.join("assets", "brick_purple.png")
-    SPRITE_BRICK_YELLOW = os.path.join("assets", "brick_yellow.png")
+    SPRITE_BRICK_GREEN = os.path.join("assets", "green.png")
+    SPRITE_BRICK_RED = os.path.join("assets", "red.png")
+    SPRITE_BRICK_ORANGE = os.path.join("assets", "orange.png")
+    SPRITE_BRICK_YELLOW = os.path.join("assets", "yellow.png")
+    SPRITE_BRICK_BLUE = os.path.join("assets", "blue.png")
 
 
-    SPRITE_SPEED_BRICK = os.path.join("assets", "brick_speed.png")
-    SPRITE_LIFE_BRICK = os.path.join("assets", "brick_life.png")
+
+    SPRITE_SPEED_BRICK = os.path.join("assets", "yellow.png")
+    SPRITE_LIFE_BRICK = os.path.join("assets", "yellow.png")
