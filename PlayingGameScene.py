@@ -44,3 +44,8 @@ class PlayingGameScene(Scene):
         for event in events:
             if event.type == pygame.QUIT:
                 exit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key  == pygame.K_SPACE:
+                    for ball in self.get_game().get_balls():
+                        ball.set_motion(True)
