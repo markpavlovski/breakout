@@ -1,5 +1,6 @@
 import pygame
 from Scene import *
+from GameConstants import *
 
 class PlayingGameScene(Scene):
 
@@ -37,6 +38,21 @@ class PlayingGameScene(Scene):
 
         pad.set_position((pygame.mouse.get_pos()[0], pad.get_position()[1]))
         game.screen.blit(pad.get_sprite(), pad.get_position())
+
+        self.clear_text()
+        self.add_text(
+            "Your Score: {}".format(game.get_score()),
+            x = 20,
+            y = GameConstants.SCREEN_SIZE[1]-120,
+            size = 60
+        )
+        self.add_text(
+            "Lives: {}".format(game.get_score()),
+            x = 20,
+            y = GameConstants.SCREEN_SIZE[1]-60,
+            size = 60
+        )
+
 
     def handle_events(self, events):
         super(PlayingGameScene,self).handle_events(events)
