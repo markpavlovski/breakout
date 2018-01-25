@@ -20,7 +20,7 @@ class GameConstants:
 
     # Ball
     BALL_SIZE = (16,16)
-    BALL_SPEED = 5
+    BALL_SPEED = 10
     SPRITE_BALL = os.path.join("assets", "ball.png")
 
     # Pad

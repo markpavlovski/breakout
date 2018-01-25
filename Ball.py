@@ -16,7 +16,7 @@ class Ball(GameObject):
         self.__speed = new_speed
 
     def reset_speed(self):
-        self.set_speed(3)
+        self.set_speed(GameConstants.BALL_SPEED)
 
     def get_speed(self):
         return self.__speed
@@ -78,6 +78,7 @@ class Ball(GameObject):
         size = self.get_size()
         new_position = (position[0] + (self.__increment[0]*self.__speed)*self.__direction[0],
                         position[1] + (self.__increment[1]*self.__speed)*self.__direction[1])
+        print(self.__speed, self.__direction, self.__increment)
 
         # Bounce off right wall:
         if new_position[0] + size[0] >= GameConstants.SCREEN_SIZE[0]:
