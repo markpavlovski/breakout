@@ -8,6 +8,8 @@ class GameConstants:
     ROW_LENGTH = 18
     MOVEMENT_INCREMENT = 2
     LIVES = 2
+    HIGHSCORE_DATA = "highscore.dat"
+    SPRITE_HIGHSCORE = os.path.join("assets", "high_score.png")
 
     # Scenes
 
