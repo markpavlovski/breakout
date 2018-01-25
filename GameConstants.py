@@ -7,6 +7,7 @@ class GameConstants:
     FPS = 40
     ROW_LENGTH = 18
     MOVEMENT_INCREMENT = 2
+    LIVES = 2
 
     # Scenes
 

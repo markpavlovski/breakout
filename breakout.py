@@ -19,7 +19,7 @@ from MenuScene import *
 
 class Breakout:
     def __init__(self):
-        self.__lives = 5
+        self.__lives = GameConstants.LIVES
         self.__score = 0
 
         self.__level = Level(self)
@@ -94,6 +94,8 @@ class Breakout:
         self.__lives += 1
 
     def reset(self):
-        pass
+        self.__lives = GameConstants.LIVES
+        self.__score = 0
+        self.__level.load(0)
 
 Breakout().start()
