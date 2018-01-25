@@ -11,6 +11,10 @@ class PlayingGameScene(Scene):
         super(PlayingGameScene,self).render()
 
         game = self.get_game()
+
+        if game.get_lives() <= 0:
+            game.change_scene(GameConstants.GAMEOVER_SCENE)
+
         balls = game.get_balls()
         pad = game.get_pad()
 
@@ -30,6 +34,12 @@ class PlayingGameScene(Scene):
                 ball.change_direction(pad)
 
             ball.update_position()
+
+            if ball.is_ball_dead():
+                ball.set_motion(False)
+                game.reduce_lives()
+
+
             game.screen.blit(ball.get_sprite(),ball.get_position())
 
         for brick in game.get_level().get_bricks():

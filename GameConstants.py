@@ -8,6 +8,14 @@ class GameConstants:
     ROW_LENGTH = 18
     MOVEMENT_INCREMENT = 2
 
+    # Scenes
+
+    PLAYING_SCENE = 0
+    GAMEOVER_SCENE = 1
+    HIGHSCORE_SCENE = 2
+    MENU_SCENE = 3
+
+
     # Bricks
     BRICK_SIZE = (60,25)
     BRICK_GAP = (0,0)
