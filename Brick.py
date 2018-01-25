@@ -5,7 +5,7 @@ class Brick(GameObject):
 
     def __init__(self, position, sprite, game):
         self.__game = game
-        self.__hit_points = 100
+        self.__hit_points = GameConstants.BRICK_HIT_POINTS
         self.__lives = 1
         super(Brick, self).__init__(position, GameConstants.BRICK_SIZE, sprite)
 

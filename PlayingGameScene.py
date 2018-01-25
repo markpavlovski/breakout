@@ -22,6 +22,7 @@ class PlayingGameScene(Scene):
             for brick in game.get_level().get_bricks():
                 if not brick.is_destroyed() and ball.intersects(brick):
                     brick.hit()
+                    game.increase_score(brick.get_hit_points())
                     ball.change_direction(brick)
                     break
 
@@ -45,7 +46,7 @@ class PlayingGameScene(Scene):
             size = 60
         )
         self.add_text(
-            "Lives: {}".format(game.get_score()),
+            "Lives: {}".format(game.get_lives()),
             x = 20,
             y = GameConstants.SCREEN_SIZE[1]-60,
             size = 60

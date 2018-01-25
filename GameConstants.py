@@ -4,20 +4,21 @@ class GameConstants:
 
     # Game
     SCREEN_SIZE = (1080,800)
-    FPS = 60
+    FPS = 40
     ROW_LENGTH = 18
     MOVEMENT_INCREMENT = 2
 
     # Bricks
     BRICK_SIZE = (60,25)
     BRICK_GAP = (0,0)
+    BRICK_HIT_POINTS = 100
     SPRITE_BRICK_GREEN = os.path.join("assets", "green.png")
     SPRITE_BRICK_RED = os.path.join("assets", "red.png")
     SPRITE_BRICK_ORANGE = os.path.join("assets", "orange.png")
     SPRITE_BRICK_YELLOW = os.path.join("assets", "yellow.png")
     SPRITE_BRICK_BLUE = os.path.join("assets", "blue.png")
-    SPRITE_SPEED_BRICK = os.path.join("assets", "yellow.png")
-    SPRITE_LIFE_BRICK = os.path.join("assets", "yellow.png")
+    SPRITE_BRICK_SPEED = os.path.join("assets", "grey.png")
+    SPRITE_BRICK_LIFE = os.path.join("assets", "white.png")
 
     # Ball
     BALL_SIZE = (16,16)

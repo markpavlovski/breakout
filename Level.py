@@ -51,11 +51,22 @@ class Level:
                     brick = Brick([x,y], pygame.image.load(GameConstants.SPRITE_BRICK_GREEN), self.__game)
                     self.__bricks.append(brick)
                     self.__amount_of_bricks_left += 1
-                    
+
                 elif item == "5":
                     brick = Brick([x,y], pygame.image.load(GameConstants.SPRITE_BRICK_BLUE), self.__game)
                     self.__bricks.append(brick)
                     self.__amount_of_bricks_left += 1
+
+                elif item == "S":
+                    brick = SpeedBrick([x,y], pygame.image.load(GameConstants.SPRITE_BRICK_SPEED), self.__game)
+                    self.__bricks.append(brick)
+                    self.__amount_of_bricks_left += 1
+
+                elif item == "L":
+                    brick = LifeBrick([x,y], pygame.image.load(GameConstants.SPRITE_BRICK_LIFE), self.__game)
+                    self.__bricks.append(brick)
+                    self.__amount_of_bricks_left += 1
+
                 x += GameConstants.BRICK_SIZE[0] + GameConstants.BRICK_GAP[0]
             x = 0
             y += GameConstants.BRICK_SIZE[1] + GameConstants.BRICK_GAP[1]
