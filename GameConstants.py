@@ -6,6 +6,7 @@ class GameConstants:
     SCREEN_SIZE = (1080,800)
     FPS = 60
     ROW_LENGTH = 18
+    MOVEMENT_INCREMENT = 2
 
     # Bricks
     BRICK_SIZE = (60,25)
@@ -25,6 +26,7 @@ class GameConstants:
 
     # Pad
     PAD_SIZE = (150,25)
+    PAD_SPEED = 15
     SPRITE_PAD = os.path.join("assets", "pad.png")
 
 

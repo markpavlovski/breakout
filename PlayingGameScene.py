@@ -35,8 +35,6 @@ class PlayingGameScene(Scene):
             if not brick.is_destroyed():
                 game.screen.blit(brick.get_sprite(),brick.get_position())
 
-
-        pad.set_position((pygame.mouse.get_pos()[0], pad.get_position()[1]))
         game.screen.blit(pad.get_sprite(), pad.get_position())
 
         self.clear_text()
@@ -56,12 +54,24 @@ class PlayingGameScene(Scene):
 
     def handle_events(self, events):
         super(PlayingGameScene,self).handle_events(events)
+        pressed_keys = pygame.key.get_pressed()
+
+        pad = self.get_game().get_pad()
+
 
         for event in events:
             if event.type == pygame.QUIT:
                 exit()
 
             if event.type == pygame.KEYDOWN:
-                if event.key  == pygame.K_SPACE:
+                if event.key  == pygame.K_SPACE or event.key == pygame.K_UP:
                     for ball in self.get_game().get_balls():
                         ball.set_motion(True)
+
+        if pressed_keys[pygame.K_RIGHT]:
+            pad.move_right()
+        if pressed_keys[pygame.K_LEFT]:
+            pad.move_left()
+
+        if pressed_keys[pygame.K_w] & pressed_keys[pygame.K_q]:
+            exit()

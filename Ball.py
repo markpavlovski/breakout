@@ -6,7 +6,7 @@ class Ball(GameObject):
     def __init__(self, position, sprite, game):
         self.__game = game
         self.__speed = GameConstants.BALL_SPEED
-        self.__increment = (2,2)
+        self.__increment = GameConstants.MOVEMENT_INCREMENT
         self.__direction = [1,-1]
         self.__in_motion = False
 
@@ -76,9 +76,8 @@ class Ball(GameObject):
 
         position = self.get_position()
         size = self.get_size()
-        new_position = (position[0] + (self.__increment[0]*self.__speed)*self.__direction[0],
-                        position[1] + (self.__increment[1]*self.__speed)*self.__direction[1])
-        print(self.__speed, self.__direction, self.__increment)
+        new_position = (position[0] + (self.__increment*self.__speed)*self.__direction[0],
+                        position[1] + (self.__increment*self.__speed)*self.__direction[1])
 
         # Bounce off right wall:
         if new_position[0] + size[0] >= GameConstants.SCREEN_SIZE[0]:
