@@ -6,8 +6,8 @@ class GameConstants:
     SCREEN_SIZE = (1080,800)
     FPS = 40
     ROW_LENGTH = 18
-    MOVEMENT_INCREMENT = 2
-    LIVES = 2
+    MOVEMENT_INCREMENT = 1
+    LIVES = 1
     HIGHSCORE_DATA = "highscore.dat"
     SPRITE_HIGHSCORE = os.path.join("assets", "high_score.png")
 
@@ -33,12 +33,12 @@ class GameConstants:
 
     # Ball
     BALL_SIZE = (16,16)
-    BALL_SPEED = 10
+    BALL_SPEED = 20
     SPRITE_BALL = os.path.join("assets", "ball.png")
 
     # Pad
     PAD_SIZE = (150,25)
-    PAD_SPEED = 15
+    PAD_SPEED = 35
     SPRITE_PAD = os.path.join("assets", "pad.png")
 
 
