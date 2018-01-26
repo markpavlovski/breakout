@@ -14,7 +14,6 @@ class GameOverScene(Scene):
     def render(self):
         game = self.get_game()
         game.screen.blit(self.__highscore_sprite,(50,50))
-
         self.clear_text()
         self.add_text("Your Name: {}".format(self.__player_name),400,400, size = 30)
         super(GameOverScene,self).render()
@@ -27,9 +26,6 @@ class GameOverScene(Scene):
             if event.type == pygame.QUIT:
                 exit()
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    game.reset()
-                    game.change_scene(GameConstants.PLAYING_SCENE)
                 if event.key == pygame.K_RETURN:
                     HighScore().add(self.__player_name,game.get_score())
                     game.reset()

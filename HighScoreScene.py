@@ -1,5 +1,6 @@
 import pygame
 from Scene import *
+from GameConstants import *
 
 class HighScoreScene(Scene):
 
@@ -14,6 +15,10 @@ class HighScoreScene(Scene):
         for event in events:
             if event.type == pygame.QUIT:
                 exit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    game.reset()
+                    game.change_scene(GameConstants.PLAYING_SCENE)
 
         if pressed_keys[pygame.K_w] & pressed_keys[pygame.K_q]:
             exit()
