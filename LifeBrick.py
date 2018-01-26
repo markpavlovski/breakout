@@ -11,4 +11,4 @@ class LifeBrick(Brick):
         super(LifeBrick, self).hit()
 
     def get_hit_sound(self):
-        return GameConstants.__SOUND_HIT_BRICK_LIFE
+        return GameConstants.SOUND_HIT_BRICK_LIFE

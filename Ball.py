@@ -74,6 +74,7 @@ class Ball(GameObject):
                                 pad_position[1]-GameConstants.BALL_SIZE[1]))
             return
 
+        game = self.__game
         position = self.get_position()
         size = self.get_size()
         new_position = (position[0] + (self.__increment*self.__speed)*self.__direction[0],
@@ -81,14 +82,17 @@ class Ball(GameObject):
 
         # Bounce off right wall:
         if new_position[0] + size[0] >= GameConstants.SCREEN_SIZE[0]:
+            game.play_sound(GameConstants.SOUND_HIT_WALL)
             new_position = (GameConstants.SCREEN_SIZE[0]- size[0], new_position[1])
             self.__direction[0] *= -1
         # Bounce off left wall:
         if new_position[0] <= 0:
+            game.play_sound(GameConstants.SOUND_HIT_WALL)
             new_position = (0,new_position[1])
             self.__direction[0] *= -1
         # Bounce off top wall:
         if new_position[1] <= 0:
+            game.play_sound(GameConstants.SOUND_HIT_WALL)
             new_position = (new_position[0], 0)
             self.__direction[1] *= -1
         # Bounce off bottom wall:

@@ -7,7 +7,7 @@ class GameConstants:
     FPS = 40
     ROW_LENGTH = 18
     MOVEMENT_INCREMENT = 1
-    LIVES = 1
+    LIVES = 10
 
     # High Scores
     HIGHSCORE_DATA = "highscore.dat"

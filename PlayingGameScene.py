@@ -26,12 +26,14 @@ class PlayingGameScene(Scene):
 
             for brick in game.get_level().get_bricks():
                 if not brick.is_destroyed() and ball.intersects(brick):
+                    game.play_sound(brick.get_hit_sound())
                     brick.hit()
                     game.increase_score(brick.get_hit_points())
                     ball.change_direction(brick)
                     break
 
             if ball.intersects(pad):
+                game.play_sound(GameConstants.SOUND_HIT_PAD)
                 ball.change_direction(pad)
 
             ball.update_position()

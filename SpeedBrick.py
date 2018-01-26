@@ -11,4 +11,4 @@ class SpeedBrick(Brick):
         super(SpeedBrick,self).hit()
 
     def get_hit_sound(self):
-        return GameConstants.__SOUND_HIT_BRICK_SPEED
+        return GameConstants.SOUND_HIT_BRICK_SPEED
