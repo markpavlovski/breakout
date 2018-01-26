@@ -1,3 +1,4 @@
+from GameConstants import *
 from Brick import *
 
 class SpeedBrick(Brick):
@@ -8,3 +9,6 @@ class SpeedBrick(Brick):
         for ball in self.get_game().get_balls():
             ball.set_speed(2*ball.get_speed())
         super(SpeedBrick,self).hit()
+
+    def get_hit_sound(self):
+        return GameConstants.__SOUND_HIT_BRICK_SPEED

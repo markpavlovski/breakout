@@ -46,10 +46,16 @@ class Breakout:
             ]
 
         self.__current_scene = 0
-        self.__sounds = []
+        self.__sounds = (
+            pygame.mixer.Sound(GameConstants.SOUND_FILE_GAME_OVER),
+            pygame.mixer.Sound(GameConstants.SOUND_FILE_HIT_BRICK),
+            pygame.mixer.Sound(GameConstants.SOUND_FILE_HIT_BRICK_LIFE),
+            pygame.mixer.Sound(GameConstants.SOUND_FILE_HIT_BRICK_SPEED),
+            pygame.mixer.Sound(GameConstants.SOUND_FILE_HIT_WALL),
+            pygame.mixer.Sound(GameConstants.SOUND_FILE_HIT_PAD)
+        )
 
         print(GameConstants.SCREEN_SIZE)
-        pass
 
 
     def start(self):

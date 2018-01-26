@@ -13,6 +13,7 @@ class PlayingGameScene(Scene):
         game = self.get_game()
 
         if game.get_lives() <= 0:
+            game.play_sound(GameConstants.SOUND_GAME_OVER)
             game.change_scene(GameConstants.GAMEOVER_SCENE)
 
         balls = game.get_balls()

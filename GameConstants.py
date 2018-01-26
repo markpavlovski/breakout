@@ -44,8 +44,21 @@ class GameConstants:
     PAD_SPEED = 35
     SPRITE_PAD = os.path.join("assets", "pad.png")
 
+    # Sounds
 
+    SOUND_FILE_GAME_OVER = os.path.join("assets", "game_over.wav")
+    SOUND_FILE_HIT_BRICK = os.path.join("assets", "hit_noise.wav")
+    SOUND_FILE_HIT_BRICK_LIFE = os.path.join("assets", "extra_life.wav")
+    SOUND_FILE_HIT_BRICK_SPEED = os.path.join("assets", "extra_speed.wav")
+    SOUND_FILE_HIT_WALL = os.path.join("assets", "wall_bounce.wav")
+    SOUND_FILE_HIT_PAD = os.path.join("assets", "pad_bounce.wav")
 
+    SOUND_GAME_OVER = 0
+    SOUND_HIT_BRICK = 1
+    SOUND_HIT_BRICK_LIFE = 2
+    SOUND_HIT_BRICK_SPEED = 3
+    SOUND_HIT_WALL = 4
+    SOUND_HIT_PAD = 5
 
 
 
