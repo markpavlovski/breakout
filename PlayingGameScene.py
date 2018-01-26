@@ -11,13 +11,22 @@ class PlayingGameScene(Scene):
         super(PlayingGameScene,self).render()
 
         game = self.get_game()
+        level = game.get_level()
+        balls = game.get_balls()
+        pad = game.get_pad()
+
+        if level.get_amount_of_bricks_left() <= 0:
+            for ball in balls:
+                ball.set_motion(False)
+            level.load_next_level()
+
+
 
         if game.get_lives() <= 0:
             game.play_sound(GameConstants.SOUND_GAME_OVER)
             game.change_scene(GameConstants.GAMEOVER_SCENE)
 
-        balls = game.get_balls()
-        pad = game.get_pad()
+
 
         for ball in game.get_balls():
             for other_ball in balls:
@@ -28,6 +37,7 @@ class PlayingGameScene(Scene):
                 if not brick.is_destroyed() and ball.intersects(brick):
                     game.play_sound(brick.get_hit_sound())
                     brick.hit()
+                    level.brick_hit()
                     game.increase_score(brick.get_hit_points())
                     ball.change_direction(brick)
                     break
