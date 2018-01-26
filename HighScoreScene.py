@@ -22,6 +22,8 @@ class HighScoreScene(Scene):
         for score in high_score.get_scores():
             self.add_text("{}: {}".format(score[0],score[1]),text_position[0],text_position[1], size = GameConstants.HIGHSCORE_FONT_SIZE)
             text_position[1] += GameConstants.HIGHSCORE_FONT_SIZE*7/10
+        self.add_text("PRESS SPACE TO BEGIN A NEW GAME",GameConstants.SCREEN_SIZE[0]/2-350,text_position[1] + 150, size = GameConstants.HIGHSCORE_FONT_SIZE)
+        text_position[1] += GameConstants.HIGHSCORE_FONT_SIZE*7/10
         super(HighScoreScene,self).render()
 
     def handle_events(self, events):

@@ -14,7 +14,6 @@ class HighScore:
         highscore = []
         with open(GameConstants.HIGHSCORE_DATA) as f:
             content = f.readlines()
-            print(content)
             if content == []:
                 return highscore
             for line in content:
@@ -30,13 +29,9 @@ class HighScore:
 
     def add(self, name, score):
         score_hash = hashlib.md5((str(name+str(score)+"pygame")).encode("utf-8"))
-        print(self.__highscore)
         self.__highscore.append([name,str(score),score_hash.hexdigest()])
-        print(self.__highscore)
 
         f = open(GameConstants.HIGHSCORE_DATA,"w")
         for name, score, md5 in self.__highscore:
             f.write(str(name)+"[::]"+str(score)+"[::]"+str(md5)+"\n")
-            print(str(name)+"[::]"+str(score)+"[::]"+str(md5)+"\n")
-            print("witten!")
         f.close()
