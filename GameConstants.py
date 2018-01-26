@@ -8,16 +8,19 @@ class GameConstants:
     ROW_LENGTH = 18
     MOVEMENT_INCREMENT = 1
     LIVES = 1
+
+    # High Scores
     HIGHSCORE_DATA = "highscore.dat"
+    HIGHSCORE_KEPT_SIZE = 5
+    HIGHSCORE_USER_NAME_LENGTH = 6
+    HIGHSCORE_FONT_SIZE = 50
     SPRITE_HIGHSCORE = os.path.join("assets", "high_score.png")
 
     # Scenes
-
     PLAYING_SCENE = 0
     GAMEOVER_SCENE = 1
     HIGHSCORE_SCENE = 2
     MENU_SCENE = 3
-
 
     # Bricks
     BRICK_SIZE = (60,25)

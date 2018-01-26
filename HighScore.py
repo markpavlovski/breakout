@@ -25,7 +25,7 @@ class HighScore:
                     highscore.append([str(name), int(score), str(md5)])
 
                 highscore.sort(key=operator.itemgetter(1), reverse=True)
-                highscore = highscore[0:11]
+                highscore = highscore[0:GameConstants.HIGHSCORE_KEPT_SIZE]
         return highscore
 
     def add(self, name, score):

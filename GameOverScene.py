@@ -30,10 +30,10 @@ class GameOverScene(Scene):
                     HighScore().add(self.__player_name,game.get_score())
                     game.reset()
                     game.change_scene(GameConstants.HIGHSCORE_SCENE)
-                elif event.key >= 65 and event.key <= 122:
+                elif event.key >= 65 and event.key <= 122 and len(self.__player_name) < GameConstants.HIGHSCORE_USER_NAME_LENGTH:
                     self.__player_name += chr(event.key).upper()
-                elif event.key == pygame.K_DELETE or event.key == pygame.K_BACKSPACE:
-                    self.__player_name = self.__player_name[:-1]
+                # elif event.key == pygame.K_DELETE or event.key == pygame.K_BACKSPACE:
+                #     self.__player_name = self.__player_name[:-1]
 
 
         if pressed_keys[pygame.K_w] and pressed_keys[pygame.K_q]:
