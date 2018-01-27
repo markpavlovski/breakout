@@ -35,7 +35,7 @@ class Breakout:
         pygame.display.set_caption("Breakout!")
 
         self.__clock = pygame.time.Clock()
-        self.screen = pygame.display.set_mode(GameConstants.SCREEN_SIZE, pygame.DOUBLEBUF, 32) #pygame.DOUBLEBUF | pygame.FULLSCREEN for full screen
+        self.screen = pygame.display.set_mode(GameConstants.SCREEN_SIZE, pygame.DOUBLEBUF | pygame.FULLSCREEN, 32) #pygame.DOUBLEBUF | pygame.FULLSCREEN for full screen
         pygame.mouse.set_visible(False)
 
         self.__scenes = [
@@ -52,7 +52,11 @@ class Breakout:
             pygame.mixer.Sound(GameConstants.SOUND_FILE_HIT_BRICK_LIFE),
             pygame.mixer.Sound(GameConstants.SOUND_FILE_HIT_BRICK_SPEED),
             pygame.mixer.Sound(GameConstants.SOUND_FILE_HIT_WALL),
-            pygame.mixer.Sound(GameConstants.SOUND_FILE_HIT_PAD)
+            pygame.mixer.Sound(GameConstants.SOUND_FILE_HIT_PAD),
+            pygame.mixer.Sound(GameConstants.SOUND_FILE_NEW_GAME),
+            pygame.mixer.Sound(GameConstants.SOUND_FILE_NEXT_LEVEL),
+            pygame.mixer.Sound(GameConstants.SOUND_FILE_HIGH_SCORES),
+            pygame.mixer.Sound(GameConstants.SOUND_FILE_YOU_DIE)
         )
 
         print(GameConstants.SCREEN_SIZE)

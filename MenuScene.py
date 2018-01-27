@@ -32,6 +32,7 @@ class MenuScene(Scene):
                 if event.key  == pygame.K_ESCAPE:
                     exit()
                 if event.key == pygame.K_1:
+                    self.get_game().play_sound(GameConstants.SOUND_NEW_GAME)
                     self.get_game().change_scene(GameConstants.PLAYING_SCENE)
                 if event.key == pygame.K_2:
                     self.get_game().change_scene(GameConstants.HIGHSCORE_SCENE)

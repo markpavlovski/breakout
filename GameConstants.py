@@ -4,7 +4,7 @@ class GameConstants:
 
     # Game
     SCREEN_SIZE = (1080,800)
-    FPS = 40
+    FPS = 20
     ROW_LENGTH = 18
     MOVEMENT_INCREMENT = 1
     LIVES = 10
@@ -46,13 +46,19 @@ class GameConstants:
     SPRITE_PAD = os.path.join("assets", "pad.png")
 
     # Sounds
+    SOUND_FILE_NEW_GAME = os.path.join("assets","sounds", "new_game.wav")
+    SOUND_FILE_GAME_OVER = os.path.join("assets","sounds", "game_over.wav")
+    SOUND_FILE_HIT_BRICK = os.path.join("assets", "sounds", "berimbau_high.wav")
+    SOUND_FILE_HIT_BRICK_LIFE = os.path.join("assets", "sounds", "bonus_life.wav")
+    SOUND_FILE_HIT_BRICK_SPEED = os.path.join("assets", "sounds", "speed.wav")
+    SOUND_FILE_HIT_WALL = os.path.join("assets", "sounds", "berimbau_dirty.wav")
+    SOUND_FILE_HIT_PAD = os.path.join("assets", "sounds", "berimbau_low.wav")
+    SOUND_FILE_NEXT_LEVEL = os.path.join("assets", "sounds", "next_level.wav")
+    SOUND_FILE_YOU_DIE = os.path.join("assets", "sounds", "you_die.wav")
+    SOUND_FILE_HIGH_SCORES = os.path.join("assets", "sounds", "high_scores.wav")
 
-    SOUND_FILE_GAME_OVER = os.path.join("assets", "game_over.wav")
-    SOUND_FILE_HIT_BRICK = os.path.join("assets", "hit_noise.wav")
-    SOUND_FILE_HIT_BRICK_LIFE = os.path.join("assets", "extra_life.wav")
-    SOUND_FILE_HIT_BRICK_SPEED = os.path.join("assets", "extra_speed.wav")
-    SOUND_FILE_HIT_WALL = os.path.join("assets", "wall_bounce.wav")
-    SOUND_FILE_HIT_PAD = os.path.join("assets", "pad_bounce.wav")
+
+
 
     SOUND_GAME_OVER = 0
     SOUND_HIT_BRICK = 1
@@ -60,6 +66,10 @@ class GameConstants:
     SOUND_HIT_BRICK_SPEED = 3
     SOUND_HIT_WALL = 4
     SOUND_HIT_PAD = 5
+    SOUND_NEW_GAME = 6
+    SOUND_NEXT_LEVEL = 7
+    SOUND_YOU_DIE = 8
+    SOUND_HIGH_SCORES = 9
 
 
 
