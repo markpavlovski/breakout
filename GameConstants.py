@@ -51,11 +51,12 @@ class GameConstants:
     SOUND_FILE_HIT_BRICK = os.path.join("assets", "sounds", "berimbau_high.wav")
     SOUND_FILE_HIT_BRICK_LIFE = os.path.join("assets", "sounds", "bonus_life.wav")
     SOUND_FILE_HIT_BRICK_SPEED = os.path.join("assets", "sounds", "speed.wav")
-    SOUND_FILE_HIT_WALL = os.path.join("assets", "sounds", "berimbau_dirty.wav")
-    SOUND_FILE_HIT_PAD = os.path.join("assets", "sounds", "berimbau_low.wav")
+    SOUND_FILE_HIT_WALL = os.path.join("assets", "sounds", "berimbau_dirty_44K.wav")
+    SOUND_FILE_HIT_PAD = os.path.join("assets", "sounds", "berimbau_low_44K.wav")
     SOUND_FILE_NEXT_LEVEL = os.path.join("assets", "sounds", "next_level.wav")
     SOUND_FILE_YOU_DIE = os.path.join("assets", "sounds", "you_die.wav")
     SOUND_FILE_HIGH_SCORES = os.path.join("assets", "sounds", "high_scores.wav")
+    SOUND_FILE_BREAKOUT = os.path.join("assets", "sounds", "breakout_slow.wav")
 
 
 
@@ -70,6 +71,7 @@ class GameConstants:
     SOUND_NEXT_LEVEL = 7
     SOUND_YOU_DIE = 8
     SOUND_HIGH_SCORES = 9
+    SOUND_BREAKOUT = 10
 
 
 

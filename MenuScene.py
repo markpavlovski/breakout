@@ -12,10 +12,15 @@ class MenuScene(Scene):
         self.add_text("3 - Quit", x = 400, y = 400, size = 50)
 
         self.__menu_sprite = pygame.image.load(GameConstants.SPRITE_MENU)
+        self.__start_sound = True
 
     def render(self):
         self.get_game().screen.blit(self.__menu_sprite,(50,50))
         super(MenuScene,self).render()
+        while self.__start_sound:
+            self.get_game().play_sound(GameConstants.SOUND_BREAKOUT)
+            self.__start_sound = False
+
 
     def handle_events(self, events):
         super(MenuScene,self).handle_events(events)
