@@ -18,6 +18,7 @@ class PlayingGameScene(Scene):
         if level.get_amount_of_bricks_left() <= 0:
             for ball in balls:
                 ball.set_motion(False)
+            game.play_sound(GameConstants.SOUND_NEXT_LEVEL)
             level.load_next_level()
 
 
@@ -50,6 +51,7 @@ class PlayingGameScene(Scene):
 
             if ball.is_ball_dead():
                 ball.set_motion(False)
+                game.play_sound(GameConstants.SOUND_YOU_DIE)
                 game.reduce_lives()
 
 

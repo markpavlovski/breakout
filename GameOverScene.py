@@ -29,6 +29,7 @@ class GameOverScene(Scene):
                 if event.key == pygame.K_RETURN:
                     HighScore().add(self.__player_name,game.get_score())
                     game.reset()
+                    game.play_sound(GameConstants.SOUND_HIGH_SCORES)
                     game.change_scene(GameConstants.HIGHSCORE_SCENE)
                 elif event.key >= 65 and event.key <= 122 and len(self.__player_name) < GameConstants.HIGHSCORE_USER_NAME_LENGTH:
                     self.__player_name += chr(event.key).upper()

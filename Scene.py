@@ -14,7 +14,15 @@ class Scene:
         return self.__game
 
     def handle_events(self, events):
-        pass
+        pressed_keys = pygame.key.get_pressed()
+
+        for event in events:
+            if event.type == pygame.QUIT:
+                exit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key  == pygame.K_ESCAPE:
+                    exit()
 
     def clear_text(self):
         self.__texts = []

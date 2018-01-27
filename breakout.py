@@ -55,8 +55,8 @@ class Breakout:
             pygame.mixer.Sound(GameConstants.SOUND_FILE_HIT_PAD),
             pygame.mixer.Sound(GameConstants.SOUND_FILE_NEW_GAME),
             pygame.mixer.Sound(GameConstants.SOUND_FILE_NEXT_LEVEL),
-            pygame.mixer.Sound(GameConstants.SOUND_FILE_HIGH_SCORES),
-            pygame.mixer.Sound(GameConstants.SOUND_FILE_YOU_DIE)
+            pygame.mixer.Sound(GameConstants.SOUND_FILE_YOU_DIE),
+            pygame.mixer.Sound(GameConstants.SOUND_FILE_HIGH_SCORES)
         )
 
         print(GameConstants.SCREEN_SIZE)
