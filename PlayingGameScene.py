@@ -51,8 +51,11 @@ class PlayingGameScene(Scene):
 
             if ball.is_ball_dead():
                 ball.set_motion(False)
-                game.play_sound(GameConstants.SOUND_YOU_DIE)
                 game.reduce_lives()
+                if game.get_lives() > 0:
+                    game.play_sound(GameConstants.SOUND_YOU_DIE)
+
+
 
 
             game.screen.blit(ball.get_sprite(),ball.get_position())

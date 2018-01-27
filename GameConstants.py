@@ -7,7 +7,7 @@ class GameConstants:
     FPS = 20
     ROW_LENGTH = 18
     MOVEMENT_INCREMENT = 1
-    LIVES = 10
+    LIVES = 20
     SPRITE_MENU = os.path.join("assets", "main_menu.png")
 
     # High Scores

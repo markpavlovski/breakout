@@ -35,6 +35,7 @@ class HighScoreScene(Scene):
                 exit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
+                    game.play_sound(GameConstants.SOUND_NEW_GAME)
                     game.reset()
                     game.change_scene(GameConstants.PLAYING_SCENE)
 

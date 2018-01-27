@@ -7,7 +7,6 @@ class GameOverScene(Scene):
 
     def __init__(self,game):
         super(GameOverScene,self).__init__(game)
-
         self.__player_name = ""
         self.__highscore_sprite = pygame.image.load(GameConstants.SPRITE_HIGHSCORE)
 
