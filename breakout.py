@@ -103,6 +103,9 @@ class Breakout:
     def reduce_lives(self):
         self.__lives -= 1
 
+    def reduce_lives_to_zero(self):
+            self.__lives = 0
+
     def increase_lives(self):
         self.__lives += 1
 

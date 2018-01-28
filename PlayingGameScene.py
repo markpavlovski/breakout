@@ -69,14 +69,14 @@ class PlayingGameScene(Scene):
         self.clear_text()
         self.add_text(
             "SCORE: {}".format(game.get_score()),
-            x = 0,
-            y = 30,
+            x = 20,
+            y = 25,
             size = 30
         )
         self.add_text(
             "LIVES: {}".format(game.get_lives()),
-            x = 0,
-            y = 70,
+            x = 20,
+            y = 65,
             size = 30
         )
 
@@ -85,6 +85,7 @@ class PlayingGameScene(Scene):
         super(PlayingGameScene,self).handle_events(events)
         pressed_keys = pygame.key.get_pressed()
 
+        game = self.get_game()
         pad = self.get_game().get_pad()
 
 

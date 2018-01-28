@@ -21,10 +21,6 @@ class Scene:
             if event.type == pygame.QUIT:
                 exit()
 
-            if event.type == pygame.KEYDOWN:
-                if event.key  == pygame.K_ESCAPE:
-                    exit()
-
     def clear_text(self):
         self.__texts = []
 

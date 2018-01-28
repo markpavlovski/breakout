@@ -15,8 +15,8 @@ class GameConstants:
     HIGHSCORE_DATA = "highscore.dat"
     HIGHSCORE_KEPT_SIZE = 5
     HIGHSCORE_USER_NAME_LENGTH = 6
-    HIGHSCORE_FONT_SIZE = 30
-    HIGHSCORE_FONT_LINE_OFFSET = 40
+    HIGHSCORE_FONT_SIZE = 25
+    HIGHSCORE_FONT_LINE_OFFSET = 25
     SPRITE_HIGHSCORE = os.path.join("assets", "high_score.png")
 
     # Scenes
