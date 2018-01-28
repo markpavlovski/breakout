@@ -1,6 +1,7 @@
 import pygame
 from Scene import *
 from GameConstants import *
+from Ball import *
 
 class PlayingGameScene(Scene):
 
@@ -27,7 +28,7 @@ class PlayingGameScene(Scene):
             game.play_sound(GameConstants.SOUND_GAME_OVER)
             game.change_scene(GameConstants.GAMEOVER_SCENE)
 
-
+        game.refresh_balls()
 
         for ball in game.get_balls():
             for other_ball in balls:
@@ -49,11 +50,17 @@ class PlayingGameScene(Scene):
 
             ball.update_position()
 
+
+
             if ball.is_ball_dead():
                 ball.set_motion(False)
-                game.reduce_lives()
-                if game.get_lives() > 0:
-                    game.play_sound(GameConstants.SOUND_YOU_DIE)
+
+                if len(game.get_balls()) <= 1:
+                    game.reduce_lives()
+                    if game.get_lives() > 0:
+                        game.play_sound(GameConstants.SOUND_YOU_DIE)
+                        ball = Ball(self.get_game().get_pad().get_position(),pygame.image.load(GameConstants.SPRITE_BALL),game)
+                        game.add_a_ball(ball)
 
 
 

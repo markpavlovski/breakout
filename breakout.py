@@ -95,6 +95,9 @@ class Breakout:
     def add_a_ball(self,ball):
         self.__balls.append(ball)
 
+    def refresh_balls(self):
+        self.__balls =  [ball for ball in self.get_balls() if not ball.is_ball_dead()]
+
     def get_pad(self):
         return self.__pad
 
