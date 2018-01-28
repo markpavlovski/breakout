@@ -60,10 +60,10 @@ class MenuScene(Scene):
                         exit()
 
                 if event.key == pygame.K_DOWN or event.key == pygame.K_RIGHT:
-                    self.get_game().play_sound(GameConstants.SOUND_HIT_BRICK)
+                    self.get_game().play_sound(GameConstants.SOUND_MENU)
                     self.__brick_current_location += 1
                     self.__brick_current_location %= 3
                 if event.key == pygame.K_UP or event.key == pygame.K_LEFT:
-                    self.get_game().play_sound(GameConstants.SOUND_HIT_BRICK)
+                    self.get_game().play_sound(GameConstants.SOUND_MENU)
                     self.__brick_current_location -= 1
                     self.__brick_current_location %= 3

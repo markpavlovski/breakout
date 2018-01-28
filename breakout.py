@@ -58,7 +58,8 @@ class Breakout:
             pygame.mixer.Sound(GameConstants.SOUND_FILE_YOU_DIE),
             pygame.mixer.Sound(GameConstants.SOUND_FILE_HIGH_SCORES),
             pygame.mixer.Sound(GameConstants.SOUND_FILE_BREAKOUT),
-            pygame.mixer.Sound(GameConstants.SOUND_FILE_HIT_BRICK_BALL)
+            pygame.mixer.Sound(GameConstants.SOUND_FILE_HIT_BRICK_BALL),
+            pygame.mixer.Sound(GameConstants.SOUND_FILE_MENU)
         )
 
         print(GameConstants.SCREEN_SIZE)
@@ -97,6 +98,9 @@ class Breakout:
 
     def refresh_balls(self):
         self.__balls =  [ball for ball in self.get_balls() if not ball.is_ball_dead()]
+
+    def reset_balls(self):
+        self.__balls = [Ball((GameConstants.SCREEN_SIZE[0]/2,GameConstants.SCREEN_SIZE[1]*2/3),pygame.image.load(GameConstants.SPRITE_BALL),self)]
 
     def get_pad(self):
         return self.__pad

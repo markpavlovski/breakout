@@ -63,8 +63,7 @@ class GameConstants:
     SOUND_FILE_HIGH_SCORES = os.path.join("assets", "sounds", "high_scores.wav")
     SOUND_FILE_BREAKOUT = os.path.join("assets", "sounds", "breakout_slow.wav")
     SOUND_FILE_HIT_BRICK_BALL = os.path.join("assets", "sounds", "addaball.wav")
-
-
+    SOUND_FILE_MENU = os.path.join("assets", "sounds", "berimbau_gourd.wav")
 
 
 
@@ -80,6 +79,7 @@ class GameConstants:
     SOUND_HIGH_SCORES = 9
     SOUND_BREAKOUT = 10
     SOUND_HIT_BRICK_BALL = 11
+    SOUND_MENU = 12
 
 
 

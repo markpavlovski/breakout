@@ -21,6 +21,7 @@ class PlayingGameScene(Scene):
                 ball.set_motion(False)
             game.play_sound(GameConstants.SOUND_NEXT_LEVEL)
             level.load_next_level()
+            game.reset_balls()
 
 
 
