@@ -37,6 +37,8 @@ class GameConstants:
     SPRITE_BRICK_BLUE = os.path.join("assets", "blue.png")
     SPRITE_BRICK_SPEED = os.path.join("assets", "speed.png")
     SPRITE_BRICK_LIFE = os.path.join("assets", "extra_life.png")
+    SPRITE_BRICK_BALL = os.path.join("assets", "extra_ball.png")
+
 
     # Ball
     BALL_SIZE = (16,16)
@@ -60,6 +62,8 @@ class GameConstants:
     SOUND_FILE_YOU_DIE = os.path.join("assets", "sounds", "you_die.wav")
     SOUND_FILE_HIGH_SCORES = os.path.join("assets", "sounds", "high_scores.wav")
     SOUND_FILE_BREAKOUT = os.path.join("assets", "sounds", "breakout_slow.wav")
+    SOUND_FILE_HIT_BRICK_BALL = os.path.join("assets", "sounds", "addaball.wav")
+
 
 
 
@@ -75,6 +79,8 @@ class GameConstants:
     SOUND_YOU_DIE = 8
     SOUND_HIGH_SCORES = 9
     SOUND_BREAKOUT = 10
+    SOUND_HIT_BRICK_BALL = 11
+
 
 
 

@@ -6,6 +6,7 @@ from GameConstants import *
 from Brick import *
 from SpeedBrick import *
 from LifeBrick import *
+from BallBrick import *
 
 class Level:
     def __init__(self,game):
@@ -73,6 +74,11 @@ class Level:
 
                 elif item == "L":
                     brick = LifeBrick([x,y], pygame.image.load(GameConstants.SPRITE_BRICK_LIFE), self.__game)
+                    self.__bricks.append(brick)
+                    self.__amount_of_bricks_left += 1
+
+                elif item == "B":
+                    brick = BallBrick([x,y], pygame.image.load(GameConstants.SPRITE_BRICK_BALL), self.__game)
                     self.__bricks.append(brick)
                     self.__amount_of_bricks_left += 1
 
