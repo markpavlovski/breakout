@@ -35,7 +35,7 @@ class Breakout:
         pygame.display.set_caption("Breakout!")
 
         self.__clock = pygame.time.Clock()
-        self.screen = pygame.display.set_mode(GameConstants.SCREEN_SIZE, pygame.DOUBLEBUF, 32) #| pygame.FULLSCREEN, 32)
+        self.screen = pygame.display.set_mode(GameConstants.SCREEN_SIZE, pygame.DOUBLEBUF | pygame.FULLSCREEN, 32) #| pygame.FULLSCREEN, 32)
         pygame.mouse.set_visible(False)
 
         self.__scenes = [
@@ -66,7 +66,7 @@ class Breakout:
     def start(self):
         while True:
             self.__clock.tick(GameConstants.FPS)
-            self.screen.fill((0,0,0))
+            self.screen.fill((6,5,4))
             current_scene = self.__scenes[self.__current_scene]
             current_scene.handle_events(pygame.event.get())
             current_scene.render()
@@ -90,6 +90,9 @@ class Breakout:
 
     def get_balls(self):
         return self.__balls
+
+    def add_a_ball(self,ball):
+        self.__balls.append(ball)
 
     def get_pad(self):
         return self.__pad
