@@ -35,6 +35,7 @@ class Level:
 
     def load(self, level):
         self.__current_level = level
+        self.__amount_of_bricks_left = 0
         self.__bricks = []
         x,y = 0,0
 

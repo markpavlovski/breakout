@@ -7,9 +7,10 @@ class GameConstants:
     FPS = 20
     ROW_LENGTH = 18
     MOVEMENT_INCREMENT = 1
-    LIVES = 1
+    LIVES = 20
     FONT_PATH = os.path.join("assets", "fonts","nasalization-rg.ttf")
-    SPRITE_MENU = os.path.join("assets", "main_menu.png")
+    SPRITE_MENU = os.path.join("assets", "menu_logo.png")
+
 
     # High Scores
     HIGHSCORE_DATA = "highscore.dat"

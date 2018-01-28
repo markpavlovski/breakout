@@ -8,9 +8,9 @@ class MenuScene(Scene):
     def __init__(self,game):
         super(MenuScene,self).__init__(game)
 
-        self.add_text("START GAME", x = 400, y = 300, size = 40)
-        self.add_text("HIGH SCORE", x = 400, y = 350, size = 40)
-        self.add_text("QUIT", x = 400, y = 400, size = 40)
+        self.add_text("START GAME", x = 663, y = 458, size = 40)
+        self.add_text("HIGH SCORE", x = 663, y = 508, size = 40)
+        self.add_text("QUIT", x = 663, y = 558, size = 40)
 
         self.__menu_sprite = pygame.image.load(GameConstants.SPRITE_MENU)
         self.__start_sound = True
@@ -19,14 +19,14 @@ class MenuScene(Scene):
 
     def render(self):
         game = self.get_game()
-        self.get_game().screen.blit(self.__menu_sprite,(50,50))
+        self.get_game().screen.blit(self.__menu_sprite,(0,0))
         super(MenuScene,self).render()
         while self.__start_sound:
             self.get_game().play_sound(GameConstants.SOUND_BREAKOUT)
             self.__start_sound = False
 
-        start_x = 325
-        start_y = 312
+        start_x = 586
+        start_y = 468
         linebreak = 50
         brick_locations = [(start_x,start_y),(start_x,start_y + linebreak),(start_x,start_y+2*linebreak)]
         brick = Brick(brick_locations[self.__brick_current_location], pygame.image.load(GameConstants.SPRITE_BRICK_RED), game)
