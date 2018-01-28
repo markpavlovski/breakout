@@ -7,9 +7,9 @@ class MenuScene(Scene):
     def __init__(self,game):
         super(MenuScene,self).__init__(game)
 
-        self.add_text("1 - Start Game", x = 400, y = 300, size = 50)
-        self.add_text("2 - High Score", x = 400, y = 350, size = 50)
-        self.add_text("3 - Quit", x = 400, y = 400, size = 50)
+        self.add_text("START GAME", x = 400, y = 300, size = 40)
+        self.add_text("HIGH SCORE", x = 400, y = 350, size = 40)
+        self.add_text("QUIT", x = 400, y = 400, size = 40)
 
         self.__menu_sprite = pygame.image.load(GameConstants.SPRITE_MENU)
         self.__start_sound = True

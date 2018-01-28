@@ -21,9 +21,8 @@ class HighScoreScene(Scene):
 
         for score in high_score.get_scores():
             self.add_text("{}: {}".format(score[0],score[1]),text_position[0],text_position[1], size = GameConstants.HIGHSCORE_FONT_SIZE)
-            text_position[1] += GameConstants.HIGHSCORE_FONT_SIZE*7/10
-        self.add_text("PRESS SPACE TO BEGIN A NEW GAME",GameConstants.SCREEN_SIZE[0]/2-350,text_position[1] + 150, size = GameConstants.HIGHSCORE_FONT_SIZE)
-        text_position[1] += GameConstants.HIGHSCORE_FONT_SIZE*7/10
+            text_position[1] += GameConstants.HIGHSCORE_FONT_LINE_OFFSET
+        self.add_text("RETURN TO MAIN MENU",300,text_position[1] + 150, size = GameConstants.HIGHSCORE_FONT_SIZE)
         super(HighScoreScene,self).render()
 
     def handle_events(self, events):
@@ -35,9 +34,9 @@ class HighScoreScene(Scene):
                 exit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
-                    game.play_sound(GameConstants.SOUND_NEW_GAME)
+                    game.play_sound(GameConstants.SOUND_BREAKOUT)
                     game.reset()
-                    game.change_scene(GameConstants.PLAYING_SCENE)
+                    game.change_scene(GameConstants.MENU_SCENE)
 
         if pressed_keys[pygame.K_w] & pressed_keys[pygame.K_q]:
             exit()

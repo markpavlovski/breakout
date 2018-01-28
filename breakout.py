@@ -35,7 +35,7 @@ class Breakout:
         pygame.display.set_caption("Breakout!")
 
         self.__clock = pygame.time.Clock()
-        self.screen = pygame.display.set_mode(GameConstants.SCREEN_SIZE, pygame.DOUBLEBUF | pygame.FULLSCREEN, 32) #pygame.DOUBLEBUF | pygame.FULLSCREEN for full screen
+        self.screen = pygame.display.set_mode(GameConstants.SCREEN_SIZE, pygame.DOUBLEBUF, 32) #| pygame.FULLSCREEN, 32)
         pygame.mouse.set_visible(False)
 
         self.__scenes = [

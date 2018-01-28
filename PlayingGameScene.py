@@ -68,16 +68,16 @@ class PlayingGameScene(Scene):
 
         self.clear_text()
         self.add_text(
-            "Your Score: {}".format(game.get_score()),
-            x = 20,
-            y = GameConstants.SCREEN_SIZE[1]-120,
-            size = 60
+            "SCORE: {}".format(game.get_score()),
+            x = 0,
+            y = 30,
+            size = 30
         )
         self.add_text(
-            "Lives: {}".format(game.get_lives()),
-            x = 20,
-            y = GameConstants.SCREEN_SIZE[1]-60,
-            size = 60
+            "LIVES: {}".format(game.get_lives()),
+            x = 0,
+            y = 70,
+            size = 30
         )
 
 

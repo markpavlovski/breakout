@@ -1,4 +1,5 @@
 import pygame
+from GameConstants import *
 class Scene:
 
     def __init__(self,game):
@@ -28,5 +29,5 @@ class Scene:
         self.__texts = []
 
     def add_text(self, string, x=0, y=0, color = (255,255,255), background = (0,0,0), size = 17):
-        font = pygame.font.Font(None,size)
+        font = pygame.font.Font(GameConstants.FONT_PATH,size)
         self.__texts.append([font.render(string,True,color,background), (x,y)])
