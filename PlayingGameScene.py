@@ -26,6 +26,7 @@ class PlayingGameScene(Scene):
 
 
         if game.get_lives() <= 0:
+            game.reset_balls()
             game.play_sound(GameConstants.SOUND_GAME_OVER)
             game.change_scene(GameConstants.GAMEOVER_SCENE)
 
