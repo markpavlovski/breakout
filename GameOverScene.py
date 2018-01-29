@@ -8,11 +8,9 @@ class GameOverScene(Scene):
     def __init__(self,game):
         super(GameOverScene,self).__init__(game)
         self.__player_name = ""
-        self.__highscore_sprite = pygame.image.load(GameConstants.SPRITE_HIGHSCORE)
 
     def render(self):
         game = self.get_game()
-        game.screen.blit(self.__highscore_sprite,(50,50))
         self.clear_text()
         self.add_text("Your Name: {}".format(self.__player_name),400,400, size = 30)
         super(GameOverScene,self).render()
