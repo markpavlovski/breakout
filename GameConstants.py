@@ -4,10 +4,11 @@ class GameConstants:
 
     # Game
     SCREEN_SIZE = (1080,800)
+    BACKGROUND_COLOR = (6,5,4)
     FPS = 20
     ROW_LENGTH = 18
     MOVEMENT_INCREMENT = 1
-    LIVES = 20
+    LIVES = 10
     FONT_PATH = os.path.join("assets", "fonts","nasalization-rg.ttf")
     SPRITE_MENU = os.path.join("assets", "menu_logo.png")
 

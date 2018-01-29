@@ -7,13 +7,11 @@ class HighScoreScene(Scene):
 
     def __init__(self,game):
         super(HighScoreScene,self).__init__(game)
-        self.__highscore_sprite = pygame.image.load(GameConstants.SPRITE_HIGHSCORE)
         self.__level = Level(game)
         self.__level.load_highscores()
 
     def render(self):
         game = self.get_game()
-        game.screen.blit(self.__highscore_sprite,(50,50))
         self.clear_text()
         high_score = HighScore()
 

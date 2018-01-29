@@ -68,7 +68,7 @@ class Breakout:
     def start(self):
         while True:
             self.__clock.tick(GameConstants.FPS)
-            self.screen.fill((6,5,4))
+            self.screen.fill(GameConstants.BACKGROUND_COLOR)
             current_scene = self.__scenes[self.__current_scene]
             current_scene.handle_events(pygame.event.get())
             current_scene.render()
