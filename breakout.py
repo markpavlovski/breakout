@@ -78,6 +78,9 @@ class Breakout:
     def change_scene(self, scene):
         self.__current_scene = scene
 
+    def get_scene(self):
+        return self.__current_scene
+
     def get_level(self):
         return self.__level
 

@@ -41,7 +41,7 @@ class Ball(GameObject):
         position[1] < object_position[1] + object_size[1]and \
         position[0] > object_position[0] and \
         position[0] < object_position[0] + object_size[0]:
-            self.set_position((position[0], object_position[1]+object_size[1] + 2))
+            self.set_position((position[0], object_position[1]+object_size[1]))
             self.__direction[1] *= -1
 
 
@@ -51,7 +51,7 @@ class Ball(GameObject):
         position[1] + size[1]< object_position[1] + object_size[1] and\
         position[0] > object_position[0] and \
         position[0] < object_position[0] + object_size[0]:
-            self.set_position((position[0],object_position[1]-size[1]-2))
+            self.set_position((position[0],object_position[1]-size[1]))
             self.__direction[1] *= -1
 
         # ball hits object from left:
@@ -61,10 +61,16 @@ class Ball(GameObject):
             self.set_position((object_position[0]-size[0],position[1]))
             self.__direction[0] *= -1
 
-        else:
-            self.set_position((object_position[0]+size[0],position[1]))
+        # ball hits object from right:
+        elif \
+        position[0] + size[0] > object_position[0] + object_size[0] and\
+        position[0] < object_position[0] + object_size[0]:
+            self.set_position((object_position[0]+object_size[0],position[1]))
             self.__direction[0] *= -1
-            # self.__direction[1] *= -1
+
+        else:
+            self.__direction[0] *= -1
+            self.__direction[1] *= -1
 
     def change_speed(self,game_object):
         position = self.get_position()
@@ -104,17 +110,20 @@ class Ball(GameObject):
 
         # Bounce off right wall:
         if new_position[0] + size[0] >= GameConstants.SCREEN_SIZE[0]:
-            game.play_sound(GameConstants.SOUND_HIT_WALL)
+            if game.get_scene() == GameConstants.PLAYING_SCENE:
+                game.play_sound(GameConstants.SOUND_HIT_WALL)
             new_position = (GameConstants.SCREEN_SIZE[0]- size[0], new_position[1])
             self.__direction[0] *= -1
         # Bounce off left wall:
         if new_position[0] <= 0:
-            game.play_sound(GameConstants.SOUND_HIT_WALL)
+            if game.get_scene() == GameConstants.PLAYING_SCENE:
+                game.play_sound(GameConstants.SOUND_HIT_WALL)
             new_position = (0,new_position[1])
             self.__direction[0] *= -1
         # Bounce off top wall:
         if new_position[1] <= 0:
-            game.play_sound(GameConstants.SOUND_HIT_WALL)
+            if game.get_scene() == GameConstants.PLAYING_SCENE:
+                game.play_sound(GameConstants.SOUND_HIT_WALL)
             new_position = (new_position[0], 0)
             self.__direction[1] *= -1
         # Bounce off bottom wall:
