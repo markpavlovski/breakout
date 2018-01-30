@@ -7,7 +7,7 @@ class SpeedBrick(Brick):
 
     def hit(self):
         for ball in self.get_game().get_balls():
-            ball.set_speed(1.3*ball.get_speed())
+            ball.set_speed([1.3*ball.get_speed()[0],1.3*ball.get_speed()[0]])
         super(SpeedBrick,self).hit()
 
     def get_hit_sound(self):

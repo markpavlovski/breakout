@@ -15,6 +15,7 @@ class PlayingGameScene(Scene):
         level = game.get_level()
         balls = game.get_balls()
         pad = game.get_pad()
+        game.screen.blit(pad.get_sprite(), pad.get_position())
 
         if level.get_amount_of_bricks_left() <= 0:
             for ball in balls:
@@ -73,7 +74,6 @@ class PlayingGameScene(Scene):
             if not brick.is_destroyed():
                 game.screen.blit(brick.get_sprite(),brick.get_position())
 
-        game.screen.blit(pad.get_sprite(), pad.get_position())
 
         self.clear_text()
         self.add_text(

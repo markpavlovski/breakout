@@ -5,7 +5,7 @@ class GameConstants:
     # Game
     SCREEN_SIZE = (1080,800)
     BACKGROUND_COLOR = (6,5,4)
-    FPS = 20
+    FPS = 40
     ROW_LENGTH = 18
     MOVEMENT_INCREMENT = 1
     LIVES = 10
@@ -43,12 +43,12 @@ class GameConstants:
 
     # Ball
     BALL_SIZE = (16,16)
-    BALL_SPEED = 20
+    BALL_SPEED = [10,10]
     SPRITE_BALL = os.path.join("assets", "ball.png")
 
     # Pad
     PAD_SIZE = (150,25)
-    PAD_SPEED = 35
+    PAD_SPEED = 20
     SPRITE_PAD = os.path.join("assets", "pad.png")
 
     # Sounds

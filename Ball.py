@@ -77,8 +77,8 @@ class Ball(GameObject):
         game = self.__game
         position = self.get_position()
         size = self.get_size()
-        new_position = (position[0] + (self.__increment*self.__speed)*self.__direction[0],
-                        position[1] + (self.__increment*self.__speed)*self.__direction[1])
+        new_position = (position[0] + (self.__increment*self.__speed[0])*self.__direction[0],
+                        position[1] + (self.__increment*self.__speed[1])*self.__direction[1])
 
         # Bounce off right wall:
         if new_position[0] + size[0] >= GameConstants.SCREEN_SIZE[0]:
