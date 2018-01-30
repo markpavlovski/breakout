@@ -49,6 +49,7 @@ class PlayingGameScene(Scene):
 
             if ball.intersects(pad):
                 game.play_sound(GameConstants.SOUND_HIT_PAD)
+                ball.change_speed(pad)
                 ball.change_direction(pad)
 
             ball.update_position()

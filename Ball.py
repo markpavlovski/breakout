@@ -65,6 +65,19 @@ class Ball(GameObject):
             self.__direction[0] *= -1
             # self.__direction[1] *= -1
 
+    def change_speed(self,game_object):
+        position = self.get_position()
+        size = self.get_size()
+        object_position = game_object.get_position()
+        object_size = game_object.get_size()
+
+        # Left Pad Hit
+        if position[0] + size[0] < object_position[0] + GameConstants.BALL_PAD_INTERACTION_THRESHOLD * object_size[0]:
+            self.set_speed([self.get_speed()[0] * GameConstants.BALL_PAD_INTERACTION_SPEEDUP, self.get_speed()[1]])
+
+        # Right Pad Hit
+        if position[0] > object_position[0] + (1 - GameConstants.BALL_PAD_INTERACTION_THRESHOLD) * object_size[0]:
+            self.set_speed([self.get_speed()[0] * GameConstants.BALL_PAD_INTERACTION_SPEEDUP, self.get_speed()[1]])
 
     def update_position(self):
 
