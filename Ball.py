@@ -1,4 +1,5 @@
 import pygame
+import math
 from GameConstants import *
 from GameObject import *
 
@@ -71,13 +72,19 @@ class Ball(GameObject):
         object_position = game_object.get_position()
         object_size = game_object.get_size()
 
+
+        a = self.get_speed()[0]
+        b = self.get_speed()[1]
+        k = GameConstants.BALL_PAD_INTERACTION_SPEEDUP
+        norm = math.sqrt((a**2 + b**2)/((k**2)*a**2 + (b**2)))
+        new_speed = [k*a,b]
+
         # Left Pad Hit
         if position[0] + size[0] < object_position[0] + GameConstants.BALL_PAD_INTERACTION_THRESHOLD * object_size[0]:
-            self.set_speed([self.get_speed()[0] * GameConstants.BALL_PAD_INTERACTION_SPEEDUP, self.get_speed()[1]])
-
+            self.set_speed(new_speed)
         # Right Pad Hit
         if position[0] > object_position[0] + (1 - GameConstants.BALL_PAD_INTERACTION_THRESHOLD) * object_size[0]:
-            self.set_speed([self.get_speed()[0] * GameConstants.BALL_PAD_INTERACTION_SPEEDUP, self.get_speed()[1]])
+            self.set_speed(new_speed)
 
     def update_position(self):
 

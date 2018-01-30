@@ -46,7 +46,7 @@ class GameConstants:
     BALL_SPEED = [10,10]
     SPRITE_BALL = os.path.join("assets", "ball.png")
     BALL_PAD_INTERACTION_THRESHOLD = .20
-    BALL_PAD_INTERACTION_SPEEDUP = 1.1
+    BALL_PAD_INTERACTION_SPEEDUP = 1.2
 
     # Pad
     PAD_SIZE = (150,25)
