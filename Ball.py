@@ -37,33 +37,33 @@ class Ball(GameObject):
         # ball hits object below:
         if \
         position[1] > object_position[1] and \
-        position[1] < object_position[1] + object_size[1] and \
+        position[1] < object_position[1] + object_size[1]and \
         position[0] > object_position[0] and \
         position[0] < object_position[0] + object_size[0]:
-            self.set_position((position[0], object_position[1]+object_size[1]))
+            self.set_position((position[0], object_position[1]+object_size[1] + 2))
             self.__direction[1] *= -1
 
 
         # ball hits object from above:
         elif \
-        position[1] + size[1] > object_position[1] and \
-        position[1] + size[1] < object_position[1] + object_size[1] and\
+        position[1] + size[1]> object_position[1] and \
+        position[1] + size[1]< object_position[1] + object_size[1] and\
         position[0] > object_position[0] and \
         position[0] < object_position[0] + object_size[0]:
-            self.set_position((position[0],object_position[1]-size[1]))
+            self.set_position((position[0],object_position[1]-size[1]-2))
             self.__direction[1] *= -1
 
         # ball hits object from left:
         elif \
         position[0] + size[0] > object_position[0] and\
-        position[0] + size[0] < object_position[0] + object_size[0]:
+        position[0] < object_position[0]:
             self.set_position((object_position[0]-size[0],position[1]))
             self.__direction[0] *= -1
 
         else:
             self.set_position((object_position[0]+size[0],position[1]))
             self.__direction[0] *= -1
-            self.__direction[1] *= -1
+            # self.__direction[1] *= -1
 
 
     def update_position(self):

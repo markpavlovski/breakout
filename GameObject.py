@@ -21,10 +21,10 @@ class GameObject:
         other_size = other.get_size()
 
         if self.__position[1] >= other_position[1] and self.__position[1] <= other_position[1] + other_size[1]:
-            return 1
+            return True
         if (self.__position[1] + self.__size[1]) > other_position[1] and (self.__position[1] + self.__size[1]) <= (other_position[1] + other_size[1]):
-            return 1
-        return 0
+            return True
+        return False
 
     def __intersects_x(self, other):
         other_position = other.get_position()
