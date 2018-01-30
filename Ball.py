@@ -22,6 +22,9 @@ class Ball(GameObject):
     def get_speed(self):
         return self.__speed
 
+    def get_direction(self):
+        return self.__direction
+
     def is_in_motion(self):
         return self.__in_motion
 
@@ -71,8 +74,10 @@ class Ball(GameObject):
     #     else:
     #         self.__direction[0] *= -1
     #         self.__direction[1] *= -1
+    ## NEED 16 different version of the bounce!
 
     def change_direction(self, game_object):
+        direction = self.get_direction()
         position = self.get_position()
         size = self.get_size()
         object_position = game_object.get_position()
@@ -80,31 +85,27 @@ class Ball(GameObject):
 
         if self.intersects(game_object):
 
+            if
             # Left wall hit
             if position[0] < object_position[0]:
-                # Case 1: top left corner:
-                if position[1] < object_position[1]:
-                    self.set_position((object_position[0]-size[0], object_position[1]-size[1]))
-                    self.__direction[0] *= -1
-                    self.__direction[1] *= -1
-                # Case 2: bottom left corner:
-                elif position[1] + size[1] > object_position[1] + object_size[1]:
-                    self.set_position((object_position[0]-size[0], object_position[1]+object_size[1]))
-                    self.__direction[0] *= -1
-                    self.__direction[1] *= -1
-                # Case 3: middle left side
-                else:
-                    self.set_position((object_position[0]-size[0], position[1])
-                    self.__direction[0] *= -1
+
+                self.set_position((object_position[0]-size[0], position[1]))
+                self.__direction[0] *= -1
 
             # Right wall hit
             elif position[0] + size[0] > object_position[0]+object_size[0]:
-                # Case 4: top right corner:
-                if position[1] < object_position[1]:
-                    self.set_position((object_position[0]-size[0], object_position[1]-size[1]))
-                    self.__direction[0] *= -1
-                    self.__direction[1] *= -1
+                self.set_position((object_position[0]+object_size[0], position[1]))
+                self.__direction[0] *= -1
 
+            # Top wall hit
+            elif position[1] < object_position[1]:
+                self.set_position((position[0], object_position[1]-size[1]))
+                self.__direction[1] *= -1
+
+            # Bottom wall hit:
+            else:
+                self.set_position((position[0], object_position[1]))
+                self.__direction[1] *= -1
 
 
 
