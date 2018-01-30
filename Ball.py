@@ -32,82 +32,82 @@ class Ball(GameObject):
         self.__in_motion = is_moving
         self.reset_speed()
 
-    # def change_direction(self, game_object):
-    #     position = self.get_position()
-    #     size = self.get_size()
-    #     object_position = game_object.get_position()
-    #     object_size = game_object.get_size()
-    #
-    #     # ball hits object below:
-    #     if \
-    #     position[1] > object_position[1] and \
-    #     position[1] < object_position[1] + object_size[1]and \
-    #     position[0] > object_position[0] and \
-    #     position[0] < object_position[0] + object_size[0]:
-    #         self.set_position((position[0], object_position[1]+object_size[1]))
-    #         self.__direction[1] *= -1
-    #
-    #
-    #     # ball hits object from above:
-    #     elif \
-    #     position[1] + size[1]> object_position[1] and \
-    #     position[1] + size[1]< object_position[1] + object_size[1] and\
-    #     position[0] > object_position[0] and \
-    #     position[0] < object_position[0] + object_size[0]:
-    #         self.set_position((position[0],object_position[1]-size[1]))
-    #         self.__direction[1] *= -1
-    #
-    #     # ball hits object from left:
-    #     elif \
-    #     position[0] + size[0] > object_position[0] and\
-    #     position[0] < object_position[0]:
-    #         self.set_position((object_position[0]-size[0],position[1]))
-    #         self.__direction[0] *= -1
-    #
-    #     # ball hits object from right:
-    #     elif \
-    #     position[0] + size[0] > object_position[0] + object_size[0] and\
-    #     position[0] < object_position[0] + object_size[0]:
-    #         self.set_position((object_position[0]+object_size[0],position[1]))
-    #         self.__direction[0] *= -1
-    #
-    #     else:
-    #         self.__direction[0] *= -1
-    #         self.__direction[1] *= -1
-    ## NEED 16 different version of the bounce!
-
     def change_direction(self, game_object):
-        direction = self.get_direction()
         position = self.get_position()
         size = self.get_size()
         object_position = game_object.get_position()
         object_size = game_object.get_size()
 
-        if self.intersects(game_object):
-
-            if
-            # Left wall hit
-            if position[0] < object_position[0]:
-
-                self.set_position((object_position[0]-size[0], position[1]))
-                self.__direction[0] *= -1
-
-            # Right wall hit
-            elif position[0] + size[0] > object_position[0]+object_size[0]:
-                self.set_position((object_position[0]+object_size[0], position[1]))
-                self.__direction[0] *= -1
-
-            # Top wall hit
-            elif position[1] < object_position[1]:
-                self.set_position((position[0], object_position[1]-size[1]))
-                self.__direction[1] *= -1
-
-            # Bottom wall hit:
-            else:
-                self.set_position((position[0], object_position[1]))
-                self.__direction[1] *= -1
+        # ball hits object below:
+        if \
+        position[1] > object_position[1] and \
+        position[1] < object_position[1] + object_size[1]and \
+        position[0] > object_position[0] and \
+        position[0] < object_position[0] + object_size[0]:
+            self.set_position((position[0], object_position[1]+object_size[1]))
+            self.__direction[1] *= -1
 
 
+        # ball hits object from above:
+        elif \
+        position[1] + size[1]> object_position[1] and \
+        position[1] + size[1]< object_position[1] + object_size[1] and\
+        position[0] > object_position[0] and \
+        position[0] < object_position[0] + object_size[0]:
+            self.set_position((position[0],object_position[1]-size[1]))
+            self.__direction[1] *= -1
+
+        # ball hits object from left:
+        elif \
+        position[0] + size[0] > object_position[0] and\
+        position[0] < object_position[0]:
+            self.set_position((object_position[0]-size[0],position[1]))
+            self.__direction[0] *= -1
+
+        # ball hits object from right:
+        elif \
+        position[0] + size[0] > object_position[0] + object_size[0] and\
+        position[0] < object_position[0] + object_size[0]:
+            self.set_position((object_position[0]+object_size[0],position[1]))
+            self.__direction[0] *= -1
+
+        else:
+            self.__direction[0] *= -1
+            self.__direction[1] *= -1
+    # NEED 16 different version of the bounce!
+
+    # def change_direction(self, game_object):
+    #     direction = self.get_direction()
+    #     position = self.get_position()
+    #     size = self.get_size()
+    #     object_position = game_object.get_position()
+    #     object_size = game_object.get_size()
+    #
+    #     if self.intersects(game_object):
+    #
+    #         if
+    #         # Left wall hit
+    #         if position[0] < object_position[0]:
+    #
+    #             self.set_position((object_position[0]-size[0], position[1]))
+    #             self.__direction[0] *= -1
+    #
+    #         # Right wall hit
+    #         elif position[0] + size[0] > object_position[0]+object_size[0]:
+    #             self.set_position((object_position[0]+object_size[0], position[1]))
+    #             self.__direction[0] *= -1
+    #
+    #         # Top wall hit
+    #         elif position[1] < object_position[1]:
+    #             self.set_position((position[0], object_position[1]-size[1]))
+    #             self.__direction[1] *= -1
+    #
+    #         # Bottom wall hit:
+    #         else:
+    #             self.set_position((position[0], object_position[1]))
+    #             self.__direction[1] *= -1
+    #
+    #
 
 
 
