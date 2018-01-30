@@ -76,15 +76,17 @@ class Ball(GameObject):
         a = self.get_speed()[0]
         b = self.get_speed()[1]
         k = GameConstants.BALL_PAD_INTERACTION_SPEEDUP
-        norm = math.sqrt((a**2 + b**2)/((k**2)*a**2 + (b**2)))
-        new_speed = [k*a,b]
+        norm_right = math.sqrt((a**2 + b**2)/((k**2)*(a**2) + (b**2)))
+        new_speed_right = [k*a,b]
+        norm_left = math.sqrt((a**2 + b**2)/((a**2) + (k**2)*(b**2)))
+        new_speed_left = [a,k*b]
 
         # Left Pad Hit
         if position[0] + size[0] < object_position[0] + GameConstants.BALL_PAD_INTERACTION_THRESHOLD * object_size[0]:
-            self.set_speed(new_speed)
+            self.set_speed(new_speed_left)
         # Right Pad Hit
         if position[0] > object_position[0] + (1 - GameConstants.BALL_PAD_INTERACTION_THRESHOLD) * object_size[0]:
-            self.set_speed(new_speed)
+            self.set_speed(new_speed_right)
 
     def update_position(self):
 

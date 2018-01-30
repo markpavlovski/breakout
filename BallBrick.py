@@ -12,6 +12,7 @@ class BallBrick(Brick):
         super(BallBrick, self).hit()
         ball = Ball((GameConstants.SCREEN_SIZE[0]/2,GameConstants.SCREEN_SIZE[1]*2/3),pygame.image.load(GameConstants.SPRITE_BALL),game)
         game.add_a_ball(ball)
+        ball.set_motion(True)
 
 
     def get_hit_sound(self):

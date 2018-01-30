@@ -8,9 +8,10 @@ class GameConstants:
     FPS = 40
     ROW_LENGTH = 18
     MOVEMENT_INCREMENT = 1
-    LIVES = 10
+    LIVES = 5
     FONT_PATH = os.path.join("assets", "fonts","nasalization-rg.ttf")
     SPRITE_MENU = os.path.join("assets", "menu_logo.png")
+    SPECIAL_THRESHOLD = .05
 
 
     # High Scores
@@ -45,8 +46,8 @@ class GameConstants:
     BALL_SIZE = (16,16)
     BALL_SPEED = [10,10]
     SPRITE_BALL = os.path.join("assets", "ball.png")
-    BALL_PAD_INTERACTION_THRESHOLD = .20
-    BALL_PAD_INTERACTION_SPEEDUP = 1.2
+    BALL_PAD_INTERACTION_THRESHOLD = .2
+    BALL_PAD_INTERACTION_SPEEDUP = 1.15
 
     # Pad
     PAD_SIZE = (150,25)
