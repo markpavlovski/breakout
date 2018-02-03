@@ -25,6 +25,7 @@ class Ball(GameObject):
     def get_direction(self):
         return self.__direction
 
+
     def is_in_motion(self):
         return self.__in_motion
 
@@ -32,7 +33,7 @@ class Ball(GameObject):
         self.__in_motion = is_moving
         self.reset_speed()
 
-    def change_direction(self, game_object):
+    def change_direction2(self, game_object):
         position = self.get_position()
         size = self.get_size()
         object_position = game_object.get_position()
@@ -76,40 +77,152 @@ class Ball(GameObject):
             self.__direction[1] *= -1
     # NEED 16 different version of the bounce!
 
-    # def change_direction(self, game_object):
-    #     direction = self.get_direction()
-    #     position = self.get_position()
-    #     size = self.get_size()
-    #     object_position = game_object.get_position()
-    #     object_size = game_object.get_size()
-    #
-    #     if self.intersects(game_object):
-    #
-    #         if
-    #         # Left wall hit
-    #         if position[0] < object_position[0]:
-    #
-    #             self.set_position((object_position[0]-size[0], position[1]))
-    #             self.__direction[0] *= -1
-    #
-    #         # Right wall hit
-    #         elif position[0] + size[0] > object_position[0]+object_size[0]:
-    #             self.set_position((object_position[0]+object_size[0], position[1]))
-    #             self.__direction[0] *= -1
-    #
-    #         # Top wall hit
-    #         elif position[1] < object_position[1]:
-    #             self.set_position((position[0], object_position[1]-size[1]))
-    #             self.__direction[1] *= -1
-    #
-    #         # Bottom wall hit:
-    #         else:
-    #             self.set_position((position[0], object_position[1]))
-    #             self.__direction[1] *= -1
-    #
-    #
+    def change_direction(self, game_object):
+        direction = self.get_direction()
+        position = self.get_position()
+        size = self.get_size()
+        object_position = game_object.get_position()
+        object_size = game_object.get_size()
+
+        if hit_from_left(self,game_object):
+            if hit_object_left(self,game_object):
+                put_left(self,game_object)
+                redirect_x(self)
+            if hit_object_top(self,game_object):
+                put_above(self,game_object)
+                redirect_y(self)
+            if hit_object_bottom(self,game_object):
+                put_below(self,game_object)
+                redirect_y(self)
+            if hit_object_right(self,game_object):
+                if direction[1] > 0:
+                    put_above(self,game_object)
+                    redirect_y(self)
+                else:
+                    put_below(self,game_object)
+                    redirect_y(self)
+
+        if hit_from_right(self,game_object):
+            if hit_object_right(self,game_object):
+                put_right(self,game_object)
+                redirect_x(self)
+            if hit_object_top(self,game_object):
+                put_above(self,game_object)
+                redirect_y(self)
+            if hit_object_bottom(self,game_object):
+                put_below(self,game_object)
+                redirect_y(self)
+            if hit_object_left(self,game_object):
+                if direction[1] > 0:
+                    put_above(self,game_object)
+                    redirect_y(self)
+                else:
+                    put_below(self,game_object)
+                    redirect_y(self)
 
 
+
+
+
+
+
+    def hit_from_left(self, game_object):
+        if self.intersects(game_object) and self.get_direction()[0] > 0:
+            return True
+        return False
+
+    def hit_from_right(self, game_object):
+        if self.intersects(game_object) and self.get_direction()[0] <= 0:
+            return True
+        return False
+
+    def hit_object_left(self,GameObject):
+        position = self.get_position()
+        size = self.get_size()
+        object_position = game_object.get_position()
+        object_size = game_object.get_size()
+
+        if position[0] + size[0] > object_position[0] and\
+        position[0] < object_position[0]:
+            return True
+        return False
+
+    def hit_object_right(self,GameObject):
+        position = self.get_position()
+        size = self.get_size()
+        object_position = game_object.get_position()
+        object_size = game_object.get_size()
+
+        if position[0] + size[0] > object_position[0] + object_size[0] and\
+        position[0] < object_position[0] + object_size[0]:
+            return True
+        return False
+
+    def hit_object_above(self,GameObject):
+        position = self.get_position()
+        size = self.get_size()
+        object_position = game_object.get_position()
+        object_size = game_object.get_size()
+
+        if position[1] + size[1]> object_position[1] and \
+        position[1] < object_position[1]:
+            return True
+        return False
+
+    def hit_object_below(self,GameObject):
+        position = self.get_position()
+        size = self.get_size()
+        object_position = game_object.get_position()
+        object_size = game_object.get_size()
+
+        if position[1] + size[1] > object_position[1] + object_size[1] and \
+        position[1] < object_position[1] + object_size[1]:
+            return True
+        return False
+
+
+    def put_left(self, game_object):
+        position = self.get_position()
+        size = self.get_size()
+        object_position = game_object.get_position()
+        object_size = game_object.get_size()
+
+        self.set_position((object_position[0]-size[0], position[1]))
+
+
+    def put_right(self, game_object):
+        position = self.get_position()
+        size = self.get_size()
+        object_position = game_object.get_position()
+        object_size = game_object.get_size()
+
+        self.set_position((object_position[0]+object_size[0], position[1]))
+
+
+    def put_above(self, game_object):
+        position = self.get_position()
+        size = self.get_size()
+        object_position = game_object.get_position()
+        object_size = game_object.get_size()
+
+        self.set_position((position[0], object_position[1]-size[1]))
+
+
+    def put_below(self, game_object):
+        position = self.get_position()
+        size = self.get_size()
+        object_position = game_object.get_position()
+        object_size = game_object.get_size()
+
+        self.set_position((position[0], object_position[1]+object_size[1]))
+
+
+
+    def redirect_x(self):
+        self.__direction[0] *= -1
+
+    def redirect_y(self):
+        self.__direction[1] *= -1
 
 
 
