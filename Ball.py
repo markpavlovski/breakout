@@ -33,51 +33,51 @@ class Ball(GameObject):
         self.__in_motion = is_moving
         self.reset_speed()
 
+    ## This is the original change direction code, that has been replaced:
+    # def change_direction2(self, game_object):
+    #     position = self.get_position()
+    #     size = self.get_size()
+    #     object_position = game_object.get_position()
+    #     object_size = game_object.get_size()
+    #
+    #     # ball hits object below:
+    #     if \
+    #     position[1] > object_position[1] and \
+    #     position[1] < object_position[1] + object_size[1]and \
+    #     position[0] > object_position[0] and \
+    #     position[0] < object_position[0] + object_size[0]:
+    #         self.set_position((position[0], object_position[1]+object_size[1]))
+    #         self.__direction[1] *= -1
+    #
+    #
+    #     # ball hits object from above:
+    #     elif \
+    #     position[1] + size[1]> object_position[1] and \
+    #     position[1] + size[1]< object_position[1] + object_size[1] and\
+    #     position[0] > object_position[0] and \
+    #     position[0] < object_position[0] + object_size[0]:
+    #         self.set_position((position[0],object_position[1]-size[1]))
+    #         self.__direction[1] *= -1
+    #
+    #     # ball hits object from left:
+    #     elif \
+    #     position[0] + size[0] > object_position[0] and\
+    #     position[0] < object_position[0]:
+    #         self.set_position((object_position[0]-size[0],position[1]))
+    #         self.__direction[0] *= -1
+    #
+    #     # ball hits object from right:
+    #     elif \
+    #     position[0] + size[0] > object_position[0] + object_size[0] and\
+    #     position[0] < object_position[0] + object_size[0]:
+    #         self.set_position((object_position[0]+object_size[0],position[1]))
+    #         self.__direction[0] *= -1
+    #
+    #     else:
+    #         self.__direction[0] *= -1
+    #         self.__direction[1] *= -1
+
     def change_direction(self, game_object):
-        position = self.get_position()
-        size = self.get_size()
-        object_position = game_object.get_position()
-        object_size = game_object.get_size()
-
-        # ball hits object below:
-        if \
-        position[1] > object_position[1] and \
-        position[1] < object_position[1] + object_size[1]and \
-        position[0] > object_position[0] and \
-        position[0] < object_position[0] + object_size[0]:
-            self.set_position((position[0], object_position[1]+object_size[1]))
-            self.__direction[1] *= -1
-
-
-        # ball hits object from above:
-        elif \
-        position[1] + size[1]> object_position[1] and \
-        position[1] + size[1]< object_position[1] + object_size[1] and\
-        position[0] > object_position[0] and \
-        position[0] < object_position[0] + object_size[0]:
-            self.set_position((position[0],object_position[1]-size[1]))
-            self.__direction[1] *= -1
-
-        # ball hits object from left:
-        elif \
-        position[0] + size[0] > object_position[0] and\
-        position[0] < object_position[0]:
-            self.set_position((object_position[0]-size[0],position[1]))
-            self.__direction[0] *= -1
-
-        # ball hits object from right:
-        elif \
-        position[0] + size[0] > object_position[0] + object_size[0] and\
-        position[0] < object_position[0] + object_size[0]:
-            self.set_position((object_position[0]+object_size[0],position[1]))
-            self.__direction[0] *= -1
-
-        else:
-            self.__direction[0] *= -1
-            self.__direction[1] *= -1
-    # NEED 16 different version of the bounce!
-
-    def change_direction2(self, game_object):
         direction = self.get_direction()
         position = self.get_position()
         size = self.get_size()
@@ -86,35 +86,35 @@ class Ball(GameObject):
 
         if self.hit_from_left(game_object):
             if self.hit_object_left(game_object):
-                # self.put_left(game_object)
+                self.put_left(game_object)
                 self.redirect_x()
-            if self.hit_object_above(game_object):
-                # self.put_above(game_object)
+            elif self.hit_object_above(game_object):
+                self.put_above(game_object)
                 self.redirect_y()
-            if self.hit_object_below(game_object):
-                # self.put_below(game_object)
+            elif self.hit_object_below(game_object):
+                self.put_below(game_object)
                 self.redirect_y()
-            if self.hit_object_right(game_object):
+            else:
                 if direction[1] > 0:
-                    # self.put_above(game_object)
+                    self.put_above(game_object)
                     self.redirect_y()
                 else:
-                    # self.put_below(game_object)
+                    self.put_below(game_object)
                     self.redirect_y()
 
-        if self.hit_from_right(game_object):
+        else:
             if self.hit_object_right(game_object):
-                # self.put_right(game_object)
+                self.put_right(game_object)
                 self.redirect_x()
-            if self.hit_object_above(game_object):
-                # self.put_above(game_object)
+            elif self.hit_object_above(game_object):
+                self.put_above(game_object)
                 self.redirect_y()
-            if self.hit_object_below(game_object):
-                # self.put_below(game_object)
+            elif self.hit_object_below(game_object):
+                self.put_below(game_object)
                 self.redirect_y()
-            if self.hit_object_left(game_object):
+            else:
                 if direction[1] > 0:
-                    # self.put_above(game_object)
+                    self.put_above(game_object)
                     self.redirect_y()
                 else:
                     self.put_below(game_object)

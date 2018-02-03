@@ -63,7 +63,7 @@ class PlayingGameScene(Scene):
                     game.reduce_lives()
                     if game.get_lives() > 0:
                         game.play_sound(GameConstants.SOUND_YOU_DIE)
-                        ball = Ball(self.get_game().get_pad().get_position(),pygame.image.load(GameConstants.SPRITE_BALL),game)
+                        ball = Ball((pad.get_position()[0]+pad.get_size()[0]/2-GameConstants.BALL_SIZE[0]/2,pad.get_position()[1]-GameConstants.BALL_SIZE[1]),pygame.image.load(GameConstants.SPRITE_BALL),game)
                         game.add_a_ball(ball)
 
 
