@@ -44,14 +44,14 @@ class GameConstants:
 
     # Ball
     BALL_SIZE = (16,16)
-    BALL_SPEED = [10,10]
+    BALL_SPEED = [15,15]
     SPRITE_BALL = os.path.join("assets", "ball.png")
     BALL_PAD_INTERACTION_THRESHOLD = .2
     BALL_PAD_INTERACTION_SPEEDUP = 1.15
 
     # Pad
     PAD_SIZE = (150,25)
-    PAD_SPEED = 20
+    PAD_SPEED = 25
     SPRITE_PAD = os.path.join("assets", "pad.png")
 
     # Sounds
