@@ -34,6 +34,9 @@ class PlayingGameScene(Scene):
         game.refresh_balls()
 
         for ball in game.get_balls():
+
+            ball.update_position()
+
             for other_ball in balls:
                 if ball != other_ball and ball.intersects(other_ball):
                     ball.change_direction(other_ball)
@@ -52,7 +55,6 @@ class PlayingGameScene(Scene):
                 ball.change_speed(pad)
                 ball.change_direction(pad)
 
-            ball.update_position()
 
 
 
